@@ -1,0 +1,2 @@
+include ':app', ':fastpay'
+rootProject.name='fastpay_demo'
