@@ -1,13 +1,20 @@
 package com.ylzb.fastpay.pay;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.text.TextUtils;
 
 import java.util.Map;
 
-public class PayResult {
+public class PayResult implements Parcelable {
     private String resultStatus;
     private String result;
     private String memo;
+
+    public String action;
+
+    public PayResult() {
+    }
 
     public PayResult(Map<String, String> rawResult) {
         if (rawResult == null) {
@@ -51,4 +58,36 @@ public class PayResult {
     public String getResult() {
         return result;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.resultStatus);
+        dest.writeString(this.result);
+        dest.writeString(this.memo);
+        dest.writeString(this.action);
+    }
+
+    protected PayResult(Parcel in) {
+        this.resultStatus = in.readString();
+        this.result = in.readString();
+        this.memo = in.readString();
+        this.action = in.readString();
+    }
+
+    public static final Parcelable.Creator<PayResult> CREATOR = new Parcelable.Creator<PayResult>() {
+        @Override
+        public PayResult createFromParcel(Parcel source) {
+            return new PayResult(source);
+        }
+
+        @Override
+        public PayResult[] newArray(int size) {
+            return new PayResult[size];
+        }
+    };
 }

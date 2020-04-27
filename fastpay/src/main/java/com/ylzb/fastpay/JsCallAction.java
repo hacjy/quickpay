@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.webkit.JavascriptInterface;
 
 import com.ylzb.fastpay.pay.PayManager;
+import com.ylzb.fastpay.pay.PayModel;
 import com.ylzb.fastpay.util.Base64Util;
 import com.ylzb.fastpay.util.CLog;
 import com.ylzb.fastpay.util.JsonUtil;
@@ -21,9 +22,15 @@ public class JsCallAction {
             if (JsParamInfo.PAY_TYPE_ZFB.equals(type)){
                 PayManager.getInstance().aliPay((Activity) PayManager.getInstance().getContext(),payParam);
             }else if (JsParamInfo.PAY_TYPE_WX.equals(type)){
-
+                PayModel.ReturnDataBean dataBean = (PayModel.ReturnDataBean) JsonUtil.parsData(param, PayModel.ReturnDataBean.class);
+                PayManager.getInstance().wxPay(dataBean);
             }
         }
+    }
+
+    @JavascriptInterface
+    public void zb_pay_result(String param) {
+        CLog.e(TAG,param);
     }
 
 }

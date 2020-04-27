@@ -2,18 +2,6 @@
     package="com.ylzb.fastpay" >
     <application
         android:usesCleartextTraffic="true">
-        <!-- 支付宝 -->
-        <activity
-            android:name="com.alipay.sdk.app.H5PayActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="behind" />
-        <activity
-            android:name="com.alipay.sdk.auth.AuthActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="behind" />
-
         <!-- 微信支付回调函数-->
         <activity
             android:name=".wxapi.WXPayEntryActivity"

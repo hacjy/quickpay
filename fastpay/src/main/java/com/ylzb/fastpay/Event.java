@@ -17,13 +17,13 @@ public class Event {
 
         public static String resultText(){
             if (result == PAY_RESULT_SUCCESS){
-                return "支付成功";
+                return "success";
             }else if (result == PAY_RESULT_FAILED){
-                return "支付失败";
+                return "failed";
             }else if (result == PAY_RESULT_CANCEL){
-                return "取消支付";
+                return "cancel";
             }
-            return "支付结果";
+            return "";
         }
     }
 }

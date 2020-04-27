@@ -30,7 +30,7 @@ android {
 
     repositories {
         flatDir {
-            dirs 'libs'
+            dirs 'libs','../fastpay/libs'
         }
     }
 
@@ -40,11 +40,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
 
-//    implementation project(':fastpay')
+    implementation project(':fastpay')
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.5'
     //必须在主工程的build.gradle中声明gson，不然fastpay-debug.aar包会报找不到gson异常
 //    implementation(name: "fastpay-debug", ext: "aar")
-    //Gson
-//    implementation 'com.google.code.gson:gson:2.8.5'
 
 //    implementation 'com.github.hacjy:fastpay:1.0.0'
 

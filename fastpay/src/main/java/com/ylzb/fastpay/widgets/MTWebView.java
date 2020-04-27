@@ -1,6 +1,7 @@
 package com.ylzb.fastpay.widgets;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -20,7 +21,7 @@ import com.ylzb.fastpay.R;
  * 自定义Webview
  */
 public class MTWebView extends WebView {
-
+    private Context context;
     private ProgressBar progressbar;
 
     public MTWebView(Context context) {
@@ -37,6 +38,7 @@ public class MTWebView extends WebView {
     }
 
     private void initProgressBar(Context context) {
+        this.context = context;
         progressbar = new ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal);
         progressbar.setProgressDrawable(context.getResources().getDrawable(R.drawable.progressbar_bg));
         progressbar.setIndeterminateDrawable(context.getResources().getDrawable(R.drawable.progressbar_bg));
@@ -81,18 +83,22 @@ public class MTWebView extends WebView {
 
             @Override
             public boolean onJsAlert(WebView view, String url, String message, final JsResult result) {
-                new AlertDialog.Builder(getContext())
-                        .setTitle("提示")
-                        .setMessage(message)
-                        .setPositiveButton(android.R.string.ok,
-                                new AlertDialog.OnClickListener() {
-                                    public void onClick(DialogInterface dialog,
-                                                        int which) {
-                                        // do your stuff
-                                        result.confirm();
-                                    }
-                                }).setCancelable(false).create().show();
-                return true;
+                if (context != null && context instanceof Activity && !((Activity) context).isFinishing()) {
+                    new AlertDialog.Builder(getContext())
+                            .setTitle("提示")
+                            .setMessage(message)
+                            .setPositiveButton(android.R.string.ok,
+                                    new AlertDialog.OnClickListener() {
+                                        public void onClick(DialogInterface dialog,
+                                                            int which) {
+                                            // do your stuff
+                                            result.confirm();
+                                        }
+                                    }).setCancelable(false).create().show();
+                    return true;
+                }else {
+                    return false;
+                }
             }
 
             @Override

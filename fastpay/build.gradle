@@ -25,12 +25,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation 'androidx.appcompat:appcompat:1.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
@@ -39,7 +37,7 @@ dependencies {
     //微信支付
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     //支付宝
-    implementation files('libs/alipaySdk-20180601.jar')
+    implementation (name: 'alipaySdk-15.7.5-20200422171619', ext: 'aar')
     //Gson
     implementation 'com.google.code.gson:gson:2.8.5'
 }

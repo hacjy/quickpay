@@ -16,7 +16,9 @@ import android.widget.TextView;
 
 import com.ylzb.fastpay.pay.IPayListener;
 import com.ylzb.fastpay.pay.PayManager;
+import com.ylzb.fastpay.pay.PayResult;
 import com.ylzb.fastpay.util.CLog;
+import com.ylzb.fastpay.util.JsonUtil;
 import com.ylzb.fastpay.widgets.MTWebView;
 
 public class WebviewActivity extends Activity implements IPayListener {
@@ -167,7 +169,10 @@ public class WebviewActivity extends Activity implements IPayListener {
 
     public void payResult(String result){
         String jsFunction = "javascript:zb_nativePayResult(###)";
-        jsFunction = jsFunction.replace("###","\'"+ result +"\'");
+        PayResult payResult = new PayResult();
+        payResult.action = result;
+        String resultJson = JsonUtil.objectToString(payResult);
+        jsFunction = jsFunction.replace("###","\'"+ resultJson +"\'");
         CLog.e("onPayResultEvent","call js function："+jsFunction);
         mWebView.loadUrl(jsFunction);
     }
