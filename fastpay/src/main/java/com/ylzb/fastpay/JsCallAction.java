@@ -31,6 +31,7 @@ public class JsCallAction {
     @JavascriptInterface
     public void zb_pay_result(String param) {
         CLog.e(TAG,param);
+        PayManager.getInstance().payResultCallBack(param);
     }
 
 }

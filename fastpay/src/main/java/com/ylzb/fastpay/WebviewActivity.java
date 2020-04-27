@@ -30,8 +30,6 @@ public class WebviewActivity extends Activity implements IPayListener {
     private TextView btnBack;
     private TextView tvTitle;
 
-    private int reservationId;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -167,7 +165,7 @@ public class WebviewActivity extends Activity implements IPayListener {
         return super.onKeyDown(keyCode, event);//退出H5界面
     }
 
-    public void payResult(String result){
+    public void nativePayResultCallback(String result){
         String jsFunction = "javascript:zb_nativePayResult(###)";
         PayResult payResult = new PayResult();
         payResult.action = result;
@@ -184,19 +182,25 @@ public class WebviewActivity extends Activity implements IPayListener {
 
     @Override
     public void onSuccess() {
-        payResult(new Event.PayResultEvent(Event.PayResultEvent.PAY_RESULT_SUCCESS)
+        nativePayResultCallback(new Event.PayResultEvent(Event.PayResultEvent.PAY_RESULT_SUCCESS)
                 .resultText());
     }
 
     @Override
     public void onCancel() {
-        payResult(new Event.PayResultEvent(Event.PayResultEvent.PAY_RESULT_CANCEL)
+        nativePayResultCallback(new Event.PayResultEvent(Event.PayResultEvent.PAY_RESULT_CANCEL)
                 .resultText());
     }
 
     @Override
+    public void payResult(String param) {
+        //js返回支付结果
+        PayManager.getInstance().payResultFromServer(this,param);
+    }
+
+    @Override
     public void onFail() {
-        payResult(new Event.PayResultEvent(Event.PayResultEvent.PAY_RESULT_FAILED)
+        nativePayResultCallback(new Event.PayResultEvent(Event.PayResultEvent.PAY_RESULT_FAILED)
                 .resultText());
     }
 

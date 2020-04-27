@@ -33,6 +33,7 @@ public class PayManager {
     private PayConfig payConfig;
     private Context context;
     private IPayListener payListener;
+    private PayResultFromServer callback;
 
     private static PayManager mInstance = null;
 
@@ -170,6 +171,24 @@ public class PayManager {
             }else if (resultCode == Event.PayResultEvent.PAY_RESULT_CANCEL) {
                 payListener.onCancel();
             }
+        }
+    }
+
+    public void payResultCallBack(String param){
+        if (payListener != null){
+            payListener.payResult(param);
+        }
+    }
+
+    public void setPayResult(PayResultFromServer server){
+        this.callback = server;
+    }
+
+    public void payResultFromServer(Context context,String param){
+        if (callback != null){
+            callback.result(context,param);
+        }else {
+            throw  new RuntimeException("callback is null,please run setPayResult function first.");
         }
     }
 

@@ -13,7 +13,8 @@ import com.ylzb.fastpay.WebviewActivity;
 import com.ylzb.fastpay.pay.PayManager;
 
 public class MainActivity extends AppCompatActivity {
-    private String url = "http://118.126.107.18:82/#/cashier?mch_id=3&out_order_no=48&token=2434dd1eed6542afbc317f8400926163";
+//    private String url = "http://118.126.107.18:82/#/cashier?mch_id=3&out_order_no=48&token=2434dd1eed6542afbc317f8400926163";
+    private String url = "http://118.126.107.18:82/#/cashier?mch_id=3&out_order_no=63&token=9159f5a83f894819a3397c29772c4614";
 
     private TextView tvInfo;
     private Button btnPay;
