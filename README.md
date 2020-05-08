@@ -22,5 +22,6 @@ PayManager.getInstance().setPayResult(new PayResultFromServer() {
 （二）在主工程的app build.gradle中设置微信appid
 ```
 manifestPlaceholders = [
-                wx_appid: ""
+  wx_appid: ""
+  ]
 ```
