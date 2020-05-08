@@ -1,5 +1,4 @@
 # fastpay
-[![](https://jitpack.io/v/hacjy/fastpay.svg)](https://jitpack.io/#hacjy/fastpay)
 快速支付，支持微信支付宝
 
 使用步骤：
