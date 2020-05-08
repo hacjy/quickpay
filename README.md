@@ -31,3 +31,11 @@ manifestPlaceholders = [
         tools:replace="android:appComponentFactory"
         android:appComponentFactory="@string/app_name">
 ```  
+# 可能遇到的问题记录  
+1、Program type already present: androidx.versionedparcelable.CustomVersionedPa  
+主工程没有使用androidX库，library中使用了，导致了这个问题。  
+解决办法：在gradle.properties添加一下代码  
+``` 
+android.useAndroidX=true
+android.enableJetifier=true
+``` 
