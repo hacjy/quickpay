@@ -23,5 +23,11 @@ PayManager.getInstance().setPayResult(new PayResultFromServer() {
 ```
 manifestPlaceholders = [
   wx_appid: ""
-  ]
-```
+]
+```  
+（三）在Androidmainfest的application设置下属性
+```  
+    <application
+        tools:replace="android:appComponentFactory"
+        android:appComponentFactory="@string/app_name">
+```  
