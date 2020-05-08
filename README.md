@@ -30,7 +30,22 @@ manifestPlaceholders = [
     <application
         tools:replace="android:appComponentFactory"
         android:appComponentFactory="@string/app_name">
-```  
+``` 
+主工程的WXPayEntryActivity继承fastplay中的WXPayEntryActivity  
+``` 
+<!-- 微信支付回调函数-->
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="${wx_appid}" />
+            </intent-filter>
+        </activity>
+ ```   
 # 可能遇到的问题记录  
 1、Program type already present: androidx.versionedparcelable.CustomVersionedPa  
 主工程没有使用androidX库，library中使用了，导致了这个问题。  
@@ -39,3 +54,5 @@ manifestPlaceholders = [
 android.useAndroidX=true
 android.enableJetifier=true
 ``` 
+2、需要将主工程使用的v7,v4库全部换成AndroidX  
+选中工程-右键rename-migrate to AndroidX
