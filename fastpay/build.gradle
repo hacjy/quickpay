@@ -31,15 +31,15 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestApi 'androidx.test:runner:1.2.0'
+    androidTestApi 'androidx.test.espresso:espresso-core:3.2.0'
 
     //微信支付
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     //支付宝
-    implementation (name: 'alipaySdk-15.7.5-20200422171619', ext: 'aar')
+    api (name: 'alipaySdk-15.7.5-20200422171619', ext: 'aar')
     //Gson
-    implementation 'com.google.code.gson:gson:2.8.5'
+    api 'com.google.code.gson:gson:2.8.5'
 }
 
 //aar打包 传到远程，第三方依赖才可以被下载到本地 不然在主工程使用aar会报好不到类的异常

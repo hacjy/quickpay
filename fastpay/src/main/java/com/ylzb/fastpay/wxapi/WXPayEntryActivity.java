@@ -26,7 +26,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pay_result);
+        setContentView(R.layout.activity_fastpay_pay_result);
 
         api = WXAPIFactory.createWXAPI(this, PayManager.getInstance().getWxAppId());
         api.handleIntent(getIntent(), this);

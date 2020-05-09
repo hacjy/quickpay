@@ -22,7 +22,7 @@ public class JsCallAction {
             if (JsParamInfo.PAY_TYPE_ZFB.equals(type)){
                 PayManager.getInstance().aliPay((Activity) PayManager.getInstance().getContext(),payParam);
             }else if (JsParamInfo.PAY_TYPE_WX.equals(type)){
-                PayModel.ReturnDataBean dataBean = (PayModel.ReturnDataBean) JsonUtil.parsData(param, PayModel.ReturnDataBean.class);
+                PayModel.ReturnDataBean dataBean = (PayModel.ReturnDataBean) JsonUtil.parsData(payParam, PayModel.ReturnDataBean.class);
                 PayManager.getInstance().wxPay(dataBean);
             }
         }

@@ -21,7 +21,7 @@ import com.ylzb.fastpay.util.CLog;
 import com.ylzb.fastpay.util.JsonUtil;
 import com.ylzb.fastpay.widgets.MTWebView;
 
-public class WebviewActivity extends Activity implements IPayListener {
+public class FastPayWebviewActivity extends Activity implements IPayListener {
 
     public static final String EXTRA_TITLE = "EXTRA_TITLE";
     public static final String EXTRA_URL = "EXTRA_URL";
@@ -33,7 +33,7 @@ public class WebviewActivity extends Activity implements IPayListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_webview);
+        setContentView(R.layout.activity_fastpay_webview);
         initView();
         initListener();
         initData();

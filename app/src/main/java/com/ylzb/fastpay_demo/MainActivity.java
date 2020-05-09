@@ -9,12 +9,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.ylzb.fastpay.PayConfig;
-import com.ylzb.fastpay.WebviewActivity;
+import com.ylzb.fastpay.FastPayWebviewActivity;
 import com.ylzb.fastpay.pay.PayManager;
 
 public class MainActivity extends AppCompatActivity {
-    private String url = "http://118.126.107.18:82/#/cashier?mch_id=3&out_order_no=64&token=924321747f374b7e851e4a25c62b2d39";
-//    private String url = "http://118.126.107.18:82/#/cashier?mch_id=3&out_order_no=63&token=9159f5a83f894819a3397c29772c4614";
+    private String url = "http://118.126.107.18:82/cashier?mch_id=3&out_order_no=48&token=2434dd1eed6542afbc317f8400926163";
 
     private TextView tvInfo;
     private Button btnPay;
@@ -44,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, WebviewActivity.class);
-                intent.putExtra(WebviewActivity.EXTRA_TITLE,"支付页面");
-                intent.putExtra(WebviewActivity.EXTRA_URL,url);
+                intent.setClass(MainActivity.this, FastPayWebviewActivity.class);
+                intent.putExtra(FastPayWebviewActivity.EXTRA_TITLE,"支付页面");
+                intent.putExtra(FastPayWebviewActivity.EXTRA_URL,url);
                 startActivity(intent);
             }
         });

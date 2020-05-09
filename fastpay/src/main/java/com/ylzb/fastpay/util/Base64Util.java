@@ -34,7 +34,7 @@ public class Base64Util {
         try {
             decodeWord = new String(Base64.decode(encodeWord, Base64.NO_WRAP), "utf-8");
             Log.i("Tag", "decode wrods = " + decodeWord);
-        } catch (UnsupportedEncodingException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return decodeWord;
