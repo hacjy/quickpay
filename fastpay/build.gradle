@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -48,3 +49,4 @@ dependencies {
 
 //aar打包 传到远程，第三方依赖才可以被下载到本地 不然在主工程使用aar会报好不到类的异常
 apply from: 'maven-release-aar.gradle'
+apply from: 'jcenter-release-aar.gradle'
