@@ -15,5 +15,5 @@ publish {
     //描述，大致介绍自己的类库
     desc = '快速支付'
     //网址，可以写自己的github项目页面等
-    website = 'https://github.com/hacjy/fastpay.git'
+    website = 'https://github.com/hacjy/fastpay'
 }
