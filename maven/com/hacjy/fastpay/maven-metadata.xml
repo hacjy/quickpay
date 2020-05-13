@@ -3,12 +3,10 @@
   <groupId>com.hacjy</groupId>
   <artifactId>fastpay</artifactId>
   <versioning>
-    <release>1.0.3</release>
+    <release>1.0.0</release>
     <versions>
       <version>1.0.0</version>
-      <version>1.0.2</version>
-      <version>1.0.3</version>
     </versions>
-    <lastUpdated>20200512075608</lastUpdated>
+    <lastUpdated>20200513021402</lastUpdated>
   </versioning>
 </metadata>
