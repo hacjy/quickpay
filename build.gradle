@@ -5,8 +5,6 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
-        maven{ url'http://maven.aliyun.com/nexus/content/groups/public/' }
-        maven{ url'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
 
     }
     dependencies {
@@ -28,10 +26,7 @@ allprojects {
             dirs 'libs'
         }
         google()
-//        jcenter()
-        //github下载不下来的问题 做一层映射
-        maven{ url'http://maven.aliyun.com/nexus/content/groups/public/' }
-        maven{ url'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+        jcenter()
         maven { url 'https://jitpack.io' }
     }
 
